@@ -1,0 +1,27 @@
+.list-item {
+    display: flex;
+    align-content: flex-start;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    width: 200px;
+    margin: -1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 10px;
+    
+}
+
+.list-box {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    width: fit-content;
+    box-align: center;
+    padding: 50px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 70px;
+}
