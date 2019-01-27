@@ -31,6 +31,7 @@ class NameInput extends Component {
                 <label id="label_userName" className="user-name-label">User name</label>
                 <div className="user-name-section">
                     <input
+                        autoFocus
                         className="user-name-input"
                         type="text"
                         id="input_userName"
@@ -39,7 +40,7 @@ class NameInput extends Component {
                     />
                     {
                         !isUserNameValid
-                        && <span className="error">User name is not valid</span>
+                        && <span id="userNameErrorMessage" className="error">User name is not valid</span>
                     }
                 </div>
                 {
