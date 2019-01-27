@@ -1,0 +1,18 @@
+.movie-item {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    align-items: center;
+    width: max-content;
+}
+
+.movie-item-name {
+    word-wrap: normal;
+    width: 300px;
+}
+
+.movie-item-poster{
+}

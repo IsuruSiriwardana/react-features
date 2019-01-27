@@ -19,8 +19,9 @@ export function receiveMovies(movieName, json) {
     console.log("Received movie: ", json);
     return {
         type: RECEIVE_MOVIE,
-        movieName,
+        movieName: json.Title,
         writer: json.Writer,
+        poster: json.Poster,
         receivedAt: Date.now()
     }
 }
@@ -28,7 +29,7 @@ export function receiveMovies(movieName, json) {
 export function fetchMovieData(movieName){
     return dispatch => {
         dispatch(requestMovies(movieName))
-        return fetch(`http://www.omdbapi.com/?t=${movieName}&apikey=BanMePlz`)
+        return fetch(`http://www.omdbapi.com/?t=${movieName.name}&apikey=ca5d2d1d`) // ca5d2d1d, BanMePlz
             .then(response => response.json())
             .then(json => dispatch(receiveMovies(movieName, json)))
     }

@@ -2,7 +2,8 @@ import { ADD_USER, CHANGE_USER_NAME, RECEIVE_MOVIE } from "../constants";
 
 const initialState = {
     users: [],
-    userName: ""
+    userName: "",
+    movies: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -17,8 +18,13 @@ function rootReducer(state = initialState, action) {
         });
     }
     if(action.type === RECEIVE_MOVIE) {
+        const movie = {
+            writer: action.writer,
+            movieName: action.movieName,
+            moviePoster: action.poster,
+        };
         return Object.assign({}, state, {
-            userName: action.writer
+            movies: state.movies.concat(movie)
         });
     }
     return state;
