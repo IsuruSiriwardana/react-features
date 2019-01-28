@@ -23,14 +23,18 @@ class MovieItem extends Component {
     };
 
     onMovieRemoveButtonClick = () => {
-        console.log("Props: ", this.props);
         this.props.onMovieItemRemoveClicked(this.props.movieName);
+    };
+
+    onMouseClick = () => {
+        console.log("Movie: ", this.props.movieName);
+        this.props.onMovieItemClicked(this.props.movieName);
     };
 
     render() {
         
         return (
-            <div id="movieItem" className="movie-item" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+            <div id="movieItem" className="movie-item" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onClick={this.onMouseClick}>
                 <p id="movieItemName" className="movie-item-name">{this.props.movieName}</p>
                 <img id="movieItemPoster" className="movie-item-poster" src={this.props.moviePoster} alt="Movie poster Not Available"/>
                 {

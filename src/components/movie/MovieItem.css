@@ -6,8 +6,16 @@
     border-color: black;
     border-width: 1px;
     align-items: center;
-    width: max-content;
+    width: 220px;
     position: relative;
+}
+
+.movie-item:hover {
+    cursor: pointer;
+}
+
+.movie-item:active {
+    background-color: grey;
 }
 
 .movie-item-name {

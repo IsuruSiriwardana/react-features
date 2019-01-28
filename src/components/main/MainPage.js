@@ -22,6 +22,7 @@ class MainPage extends Component {
                     <MovieList
                         movies={this.props.movies}
                         onMovieItemRemoveClicked={this.props.onMovieItemRemoveClicked}
+                        onMovieItemClicked={this.props.onMovieItemClicked}
                     />
                 )}    
             </div>

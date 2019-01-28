@@ -3,6 +3,7 @@ import {
     changeUserName,
     fetchMovieData,
     removeMovie,
+    changeSelectedMovie,
 } from '../../actions/index';
 import MainPage from './MainPage';
 
@@ -27,6 +28,9 @@ const mapDispatchToProps = dispatch => ({
     },
     onMovieItemRemoveClicked: movieName => {
         dispatch(removeMovie(movieName));
+    },
+    onMovieItemClicked: movieName => {
+        dispatch(changeSelectedMovie(movieName));
     },
 });
 

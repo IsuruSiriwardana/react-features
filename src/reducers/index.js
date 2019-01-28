@@ -1,9 +1,10 @@
-import { ADD_USER, CHANGE_USER_NAME, RECEIVE_MOVIE, REMOVE_MOVIE } from "../constants";
+import { ADD_USER, CHANGE_USER_NAME, RECEIVE_MOVIE, REMOVE_MOVIE, CHANGE_SELECTED_MOVIE } from "../constants";
 
 const initialState = {
     users: [],
     userName: "",
     movies: [],
+    selectedMovie: null,
 }
 
 function rootReducer(state = initialState, action) {
@@ -23,9 +24,16 @@ function rootReducer(state = initialState, action) {
             movieName: action.movieName,
             moviePoster: action.poster,
         };
-        return Object.assign({}, state, {
-            movies: state.movies.concat(movie)
-        });
+
+        var matchIndex =  -1; 
+        if(state.movies.length > 0 ){
+            matchIndex = state.movies.map(movie => movie.movieName).indexOf(action.movieName);
+        }
+        if(matchIndex <0) {
+            return Object.assign({}, state, {
+                movies: state.movies.concat(movie)
+            });
+        }
     }
     if(action.type === REMOVE_MOVIE) {
         const index = state.movies.map(movie => movie.movieName).indexOf(action.movieName);
@@ -35,6 +43,11 @@ function rootReducer(state = initialState, action) {
         ];
         return Object.assign({}, state, {
             movies: moviesNew
+        });
+    }
+    if(action.type === CHANGE_SELECTED_MOVIE) {
+        return Object.assign({}, state, {
+            selectedMovie: action.selectedMovie
         });
     }
     return state;

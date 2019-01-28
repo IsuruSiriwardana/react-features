@@ -1,4 +1,5 @@
-import {ADD_USER, CHANGE_USER_NAME, REQUEST_MOVIE, RECEIVE_MOVIE, REMOVE_MOVIE} from '../constants/index';
+import {ADD_USER, CHANGE_USER_NAME, REQUEST_MOVIE, RECEIVE_MOVIE, REMOVE_MOVIE, CHANGE_SELECTED_MOVIE} from '../constants/index';
+import { bindActionCreators } from 'redux';
 
 export function addUser(user){
     return { type: ADD_USER, user}
@@ -46,4 +47,11 @@ export function fetchMovieData(movieName){
                 }
             })
     }
+}
+
+export function changeSelectedMovie(selectedMovie){
+    return {
+        type: CHANGE_SELECTED_MOVIE,
+        selectedMovie,
+    };
 }
