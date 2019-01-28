@@ -2,3 +2,4 @@ export const ADD_USER = "ADD_USER";
 export const CHANGE_USER_NAME = "CHANGE_USER_NAME";
 export const REQUEST_MOVIE = "REQUEST_MOVIE";
 export const RECEIVE_MOVIE = "RECEIVE_MOVIE";
+export const REMOVE_MOVIE = "REMOVE_MOVIE";

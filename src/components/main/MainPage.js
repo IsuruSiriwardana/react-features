@@ -12,6 +12,7 @@ class MainPage extends Component {
                     userName={this.props.userName}
                     onNameChanged={this.props.onUserNameChanged}
                     onUserSubmitted={this.props.onUserSubmitted}
+                    onMovieNameEntered={this.props.onMovieNameEntered}
                 />
                 {(this.props.users.length > 0) && (<UserList
                     users={this.props.users}
@@ -20,6 +21,7 @@ class MainPage extends Component {
                 {this.props.movies.length > 0 && (
                     <MovieList
                         movies={this.props.movies}
+                        onMovieItemRemoveClicked={this.props.onMovieItemRemoveClicked}
                     />
                 )}    
             </div>

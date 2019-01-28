@@ -14,11 +14,14 @@ class NameInput extends Component {
     };
 
     onUserNameSubmitted = () => {
-        const user = {
-            name: this.props.userName
+        this.props.onUserSubmitted(this.props.userName);
+    };
+
+    onMovieNameEntered = (event) => {
+        if(event.key === 'Enter'){
+            this.props.onMovieNameEntered(this.props.userName);
         }
-        this.props.onUserSubmitted(user);
-    }
+    };
 
     render(){
 
@@ -28,7 +31,7 @@ class NameInput extends Component {
 
         return (
             <div id="nameInput" className="name-input">
-                <label id="label_userName" className="user-name-label">User name</label>
+                <label id="label_userName" className="user-name-label">Movie name</label>
                 <div className="user-name-section">
                     <input
                         autoFocus
@@ -37,10 +40,11 @@ class NameInput extends Component {
                         id="input_userName"
                         onChange={this.onNameChanged}
                         value = {this.props.userName}
+                        onKeyPress={this.onMovieNameEntered}
                     />
                     {
                         !isUserNameValid
-                        && <span id="userNameErrorMessage" className="error">User name is not valid</span>
+                        && <span id="userNameErrorMessage" className="error">Invalid movie name</span>
                     }
                 </div>
                 {

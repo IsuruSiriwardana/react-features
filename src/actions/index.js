@@ -1,4 +1,4 @@
-import {ADD_USER, CHANGE_USER_NAME, REQUEST_MOVIE, RECEIVE_MOVIE} from '../constants/index';
+import {ADD_USER, CHANGE_USER_NAME, REQUEST_MOVIE, RECEIVE_MOVIE, REMOVE_MOVIE} from '../constants/index';
 
 export function addUser(user){
     return { type: ADD_USER, user}
@@ -11,6 +11,13 @@ export function changeUserName(userName){
 function requestMovies(movieName) {
     return {
         type: REQUEST_MOVIE,
+        movieName
+    }
+}
+
+export function removeMovie(movieName) {
+    return {
+        type: REMOVE_MOVIE,
         movieName
     }
 }
@@ -29,8 +36,14 @@ export function receiveMovies(movieName, json) {
 export function fetchMovieData(movieName){
     return dispatch => {
         dispatch(requestMovies(movieName))
-        return fetch(`http://www.omdbapi.com/?t=${movieName.name}&apikey=ca5d2d1d`) // ca5d2d1d, BanMePlz
+        return fetch(`http://www.omdbapi.com/?t=${movieName}&apikey=ca5d2d1d`) // ca5d2d1d, BanMePlz
             .then(response => response.json())
-            .then(json => dispatch(receiveMovies(movieName, json)))
+            .then(json => {
+                if(json.Response === 'True'){
+                    dispatch(receiveMovies(movieName, json));
+                } else {
+                    dispatch(changeUserName(""));
+                }
+            })
     }
 }

@@ -12,6 +12,7 @@ class MovieList extends Component {
                 key={index}
                 movieName={movie.movieName}
                 moviePoster={movie.moviePoster}
+                onMovieItemRemoveClicked={this.props.onMovieItemRemoveClicked}
                 >
             </MovieItem>
         );

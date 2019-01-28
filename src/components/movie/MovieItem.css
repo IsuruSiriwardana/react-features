@@ -7,12 +7,46 @@
     border-width: 1px;
     align-items: center;
     width: max-content;
+    position: relative;
 }
 
 .movie-item-name {
     word-wrap: normal;
-    width: 300px;
+    width: 200px;
 }
 
 .movie-item-poster{
+    margin: 10px;
+    height: 300px;
+}
+
+.movie-item-remove-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    align-content: flex-end;
+    border: 0;
+    line-height: 2;
+    padding: 0 10px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 30px;
+    background-color: rgba(200, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.movie-item-remove-button:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.movie-item-remove-button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
 }

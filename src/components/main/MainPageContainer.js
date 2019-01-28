@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import {
     changeUserName,
     fetchMovieData,
+    removeMovie,
 } from '../../actions/index';
 import MainPage from './MainPage';
 
@@ -19,9 +20,14 @@ const mapDispatchToProps = dispatch => ({
         dispatch(changeUserName(userName));
     },
     onUserSubmitted: user => {
-        //dispatch(addUser(user));
         dispatch(fetchMovieData(user));
-    }
+    },
+    onMovieNameEntered: movieName => {
+        dispatch(fetchMovieData(movieName));
+    },
+    onMovieItemRemoveClicked: movieName => {
+        dispatch(removeMovie(movieName));
+    },
 });
 
 const MainPageContainer = connect(mapStateToProps, mapDispatchToProps)(MainPage);

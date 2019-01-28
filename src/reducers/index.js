@@ -1,4 +1,4 @@
-import { ADD_USER, CHANGE_USER_NAME, RECEIVE_MOVIE } from "../constants";
+import { ADD_USER, CHANGE_USER_NAME, RECEIVE_MOVIE, REMOVE_MOVIE } from "../constants";
 
 const initialState = {
     users: [],
@@ -25,6 +25,16 @@ function rootReducer(state = initialState, action) {
         };
         return Object.assign({}, state, {
             movies: state.movies.concat(movie)
+        });
+    }
+    if(action.type === REMOVE_MOVIE) {
+        const index = state.movies.map(movie => movie.movieName).indexOf(action.movieName);
+        const moviesNew = [
+            ...state.movies.slice(0, index),
+            ...state.movies.slice(index+1)
+        ];
+        return Object.assign({}, state, {
+            movies: moviesNew
         });
     }
     return state;
